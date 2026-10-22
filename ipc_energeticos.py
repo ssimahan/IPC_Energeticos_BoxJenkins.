@@ -588,8 +588,6 @@ print("Valor p:", arch_pvalor)
 # %% Prueba de Jarque-Bera
 
 # H0: los residuos siguen una distribución normal.
-# La normalidad ayuda a justificar intervalos de pronóstico gaussianos,
-# pero no es necesaria para que un modelo ARMA describa dependencia temporal.
 jb_estadistico, jb_pvalor = jarque_bera(residuos)
 print("\n=== PRUEBA JARQUE-BERA ===")
 print("Estadístico:", round(jb_estadistico, 4))
@@ -658,7 +656,7 @@ print(conclusion_ljung_box)
 print(conclusion_arch)
 print(conclusion_jb)
 
-# Guardar un reporte textual para compartir con el grupo.
+# Guardar un reporte textual.
 reporte = (
     "VALIDACIÓN DEL MODELO ARMA(1,1) - IPC DE ENERGÉTICOS\n"
     "Serie: variación mensual del IPC, enero de 2010 a septiembre de 2026\n"
@@ -675,13 +673,6 @@ reporte = (
     reporte, encoding="utf-8"
 )
 
-# %% Paso 4: Pronóstico (pendiente de integrar)
-# ============================================
-
-# Esta sección le corresponde al integrante encargado de los pronósticos.
-# Para continuar con exactamente el mismo modelo estimado, se puede utilizar:
-# pronostico = resultado_arma11.get_forecast(steps=10)
-# La variable estimada es la VARIACIÓN MENSUAL (%) del IPC de energéticos.
-# Si se quiere pronosticar el nivel del IPC, deben reconstruirse los niveles.
+# %% Paso 4: Pronóstico 
 
 print("\nAnálisis terminado. Los archivos se guardaron en la carpeta 'resultados'.")
